@@ -1,0 +1,153 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25-ago-2017, 11.16.58
+    Author     : simoberny
+*/
+
+.main{
+    padding-left: 300px;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 600px){
+    .mobile-scroll{
+        overflow: auto;
+    }
+}
+
+.dropdown-content{
+    min-width: 350px;
+}
+
+.btn{
+    background-color: #02b3e4;
+    box-shadow: 8px 10px 20px 0px rgba(46,61,73,0.15);  
+}
+
+.btn_segnalazione{
+    margin-bottom: 10px !important;
+}
+
+.myblue{
+    background-color: #02b3e4;
+}
+
+.myblue_text{
+    color: #02b3e4;
+}
+
+
+@media only screen and (max-width : 992px) {
+    .main {
+        padding-left: 0;
+    }
+}
+
+.card_admin_title{
+    font-size: 35px !important;
+}
+
+.icon_admin{
+    font-size: 50px;
+    padding: 15px;
+
+}
+
+.card-content{
+    padding-bottom: 0 !important;
+}
+
+.rating{
+}
+
+.rating i {
+    display: inline-block;
+    width: 0;
+    height: 1.3em;
+    border-width: 0 0.65em;
+    border-style: solid;
+    border-color: #eee;
+    border-radius: .22em;
+    color: white;
+    background: #eee;
+    font-style: normal;
+    line-height: 1.3em;
+    text-indent: -0.5em;
+}
+
+/** Colors */
+[data-rating^='1'] .star-1 {
+    background: #dd050b;
+    border-color: #dd050b;
+}
+
+[data-rating^='1.5'] .star-2 {
+    border-left-color: #f26a2c;
+}
+
+[data-rating^='2'] .star-1 {
+    border-color: #f26a2c;
+    background: #f26a2c;
+}
+
+[data-rating^='2'] .star-2 {
+    border-color: #f26a2c;
+    background: #f26a2c;
+}
+
+[data-rating^='2.5'] .star-3 {
+    border-left-color: #f0991e;
+}
+
+[data-rating^='3'] .star-1 {
+    border-color: #f0991e;
+    background: #f0991e;
+}
+
+[data-rating^='3'] .star-2 {
+    border-color: #f0991e;
+    background: #f0991e;
+}
+
+[data-rating^='3'] .star-3 {
+    border-color: #f0991e;
+    background: #f0991e;
+}
+
+[data-rating^='3.5'] .star-4 {
+    border-left-color: #dcb228;
+}
+
+[data-rating^='4'] .star-1 {
+
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4'] .star-2 {
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4'] .star-3 {
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4'] .star-4 {
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4.5'] .star-5 {
+    border-left-color: #dcb228;
+}
+
+[data-rating="5.0"] i {
+    border-color: #d4d411;
+    background:#d4d411;
+}
