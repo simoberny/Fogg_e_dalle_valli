@@ -77,6 +77,7 @@ public class Item {
     }
 
     public static List<Item> cerca(String txt, Double min, Double max, String categoria, Integer voto, String venditore, String ordinamento, int npag) throws SQLException, IOException, ParseException {
+
         List<Item> l = new ArrayList();
 
         StandardAnalyzer standardAnalyzer = new StandardAnalyzer();
@@ -111,11 +112,12 @@ public class Item {
             }
 
         }
+
         if (npag > 0) {
             sql += " limit " + 20*(npag-1) + "," + 20;
         }
 
-        
+
 
         Statement stmt = DBManager.CON.createStatement();
         ResultSet rs = stmt.executeQuery(sql);

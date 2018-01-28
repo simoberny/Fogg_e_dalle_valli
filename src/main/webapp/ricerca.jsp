@@ -122,6 +122,7 @@
                                 Double min = 0.0;
                                 Double max = 8000.0;
 
+
                                 if (request.getParameter("min") != null && request.getParameter("max") != null) {
                                     min = Double.parseDouble(request.getParameter("min"));
                                     max = Double.parseDouble(request.getParameter("max"));
@@ -163,6 +164,7 @@
                             <%
                                 }
                             %>                            
+
                         </div>
                     </div>
                 </form>
@@ -170,8 +172,10 @@
         </div>
 
         <script>
+
             var pagina= <%= (request.getParameter("npag") != null) ? Integer.parseInt(request.getParameter("npag")) : 1 %>;
             
+
             $(document).ready(function () {
                 $('.collapsible').collapsible();
                 var slider = document.getElementById('slider-price');
@@ -182,6 +186,7 @@
                     range: {
                         'min': 0,
                         'max': 8000
+
                     },
                     tooltips: true
                 });
@@ -195,6 +200,7 @@
             $(document).ready(function () {
                 $('select').material_select();
             });
+
             
             function incrementa(){
                 pagina++;
@@ -209,6 +215,7 @@
                 $("#pagenum").val(pagina);
                 $("form").submit();                
             }
+
         </script>
 
         <%@ include file="footer.jsp" %>
