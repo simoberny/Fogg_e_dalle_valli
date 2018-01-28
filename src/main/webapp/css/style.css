@@ -1,0 +1,1253 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1-lug-2017, 19.08.08
+    Author     : simoberny
+*/
+
+html, body{
+    background: #fff;  
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.dropdown-content{
+    min-width: 350px;
+}
+
+.notifica{
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.testo_notifiche{
+    font-size: 14px;
+}
+
+.chip-card{
+  position: absolute;
+  width: 55px;
+  height: 40px;
+  background: #bbb;
+  border-radius: 7px;
+  &:after{
+    content: '';
+    display: block;
+    width: 35px;
+    height: 25px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ddd;
+  }
+}
+
+@media only screen and (max-width: 600px){
+    .mobile-scroll{
+        overflow: auto;
+    }
+}
+
+.presentation-2{
+    box-shadow: 0 5px 20px -5px rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+}
+
+.slider .slides li img{
+    border-radius: 10px 10px 0 0;
+}
+
+.slider .slides{
+    background: rgba(0,0,0,0);
+    height: 450px;
+}
+
+.interact_li{
+    line-height: 50px !important;
+}
+
+.rating-2{
+    display: block !important;
+}
+
+.rating{
+    display: inline-block;
+}
+
+.rating i {
+    display: inline-block;
+    width: 0;
+    height: 1.3em;
+    border-width: 0 0.65em;
+    border-style: solid;
+    border-color: #eee;
+    border-radius: .22em;
+    color: white;
+    background: #eee;
+    font-style: normal;
+    line-height: 1.3em;
+    text-indent: -0.5em;
+    text-shadow: 1px 0 1px #b3b3b3;
+}
+
+/** Colors */
+[data-rating^='1'] .star-1 {
+    background: #dd050b;
+    border-color: #dd050b;
+}
+
+[data-rating^='1.5'] .star-2 {
+    border-left-color: #f26a2c;
+}
+
+[data-rating^='2'] .star-1 {
+    border-color: #f26a2c;
+    background: #f26a2c;
+}
+
+[data-rating^='2'] .star-2 {
+    border-color: #f26a2c;
+    background: #f26a2c;
+}
+
+[data-rating^='2.5'] .star-3 {
+    border-left-color: #f0991e;
+}
+
+[data-rating^='3'] .star-1 {
+    border-color: #f0991e;
+    background: #f0991e;
+}
+
+[data-rating^='3'] .star-2 {
+    border-color: #f0991e;
+    background: #f0991e;
+}
+
+[data-rating^='3'] .star-3 {
+    border-color: #f0991e;
+    background: #f0991e;
+}
+
+[data-rating^='3.5'] .star-4 {
+    border-left-color: #dcb228;
+}
+
+[data-rating^='4'] .star-1 {
+
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4'] .star-2 {
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4'] .star-3 {
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4'] .star-4 {
+    border-color: #dcb228;
+    background: #dcb228;
+}
+
+[data-rating^='4.5'] .star-5 {
+    border-left-color: #dcb228;
+}
+
+[data-rating="5"] i {
+    border-color: #d4d411;
+    background:#d4d411;
+}
+
+/** Print */
+@media print {
+    .rating {
+        -webkit-print-color-adjust: exact;
+    }
+    .rating i {
+        text-shadow: none;
+    }
+}
+
+
+.user-rec{
+    font-weight: 500;
+}
+
+.bar-recensione{
+    border-left: 2px solid #029fca;
+    padding-left: 10px;
+    margin-left: 5px;
+}
+
+.img-recensione{
+    width: 100% !important;
+}
+
+.ratized-v2{
+    margin-bottom: 10px !important;
+}
+
+.ratized {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.ratized input[type="radio"] {
+    position: fixed !important;
+    top: 0 !important;
+    right: 100% !important;
+}
+
+
+.ratized label {
+    font-size: 30px !important;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.ratized label:before{
+    display: none !important;
+}
+.ratized label:after{
+    display: none !important;
+}
+
+.ratized input[type="radio"]:checked ~ input + label {
+    background: none;
+    color: #aaa;
+}
+
+.ratized input + label {
+    color: orange;
+}
+
+.tick_order{
+    padding: 20px;
+    font-size: 80px;
+    color: #00C853;
+}
+
+
+.order-container{
+    border-radius: 10px;
+    padding: 20px 13px !important;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);  
+    margin: 15px 0px !important;
+}
+
+.order-operation{
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    height: 40px !important;
+    line-height: 40px !important;
+    text-transform: none !important;
+}
+
+.quantity-order{
+    padding-right: 10px;
+}
+
+
+
+/* CARTA DI CreDITO FITTIZZIO */
+
+.tips {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: #f1f1f1;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 2px 15px;
+}
+
+.container-card{
+    padding-top: 20px;  
+}
+
+.container-card .col1 {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.container-card .col1 .card-pay {
+    position: relative;
+    height: 250px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    display: block;
+    margin-right: auto;
+    border-radius: 17px;
+    box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.container-card .col1 .card-pay .front {
+    position: absolute;
+    background: #cacaca;
+    border-radius: 17px;
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(1px);
+    -webkit-transform: translateZ(1px);
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+    z-index: 50;
+    background-image: -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%) !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.container-card .col1 .card-pay .front .type {
+    position: absolute;
+    width: 75px;
+    height: 45px;
+    top: 20px;
+    right: 20px;
+}
+.container-card .col1 .card-pay .front .type img {
+    width: 100%;
+    float: right;
+}
+.container-card .col1 .card-pay .front .card_number {
+    position: absolute;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    top: 110px;
+    color: #e1e1e1;
+    word-spacing: 3px;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+.container-card .col1 .card-pay .front .date {
+    position: absolute;
+    bottom: 40px;
+    right: 55px;
+    width: 90px;
+    height: 35px;
+    color: #e1e1e1;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+.container-card .col1 .card-pay .front .date .date_value {
+    font-size: 12px;
+    position: absolute;
+    margin-left: 22px;
+    margin-top: 12px;
+    color: #e1e1e1;
+    font-weight: 500;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+.container-card .col1 .card-pay .front .date:after {
+    content: 'MONTH / YEAR';
+    position: absolute;
+    display: block;
+    font-size: 7px;
+    margin-left: 20px;
+}
+.container-card .col1 .card-pay .front .date:before {
+    content: 'valid \a thru';
+    position: absolute;
+    display: block;
+    font-size: 8px;
+    white-space: pre;
+    margin-top: 8px;
+}
+.container-card .col1 .card-pay .fullname {
+    position: absolute;
+    font-size: 20px;
+    bottom: 40px;
+    color: #e1e1e1;
+    -webkit-transition: color 0.5s;
+    transition: color 0.5s;
+}
+.container-card .col1 .card-pay .back {
+    position: absolute;
+    width: 100%;
+    border-radius: 17px;
+    height: 100%;
+    background: #cacaca;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.container-card .col1 .card-pay .back .magnetic {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    margin-top: 25px;
+}
+.container-card .col1 .card-pay .back .bar {
+    position: absolute;
+    width: 80%;
+    height: 37px;
+    background: rgba(255, 255, 255, 0.7);
+    left: 10px;
+    margin-top: 100px;
+}
+.container-card .col1 .card-pay .back .seccode {
+    font-size: 13px;
+    color: #e1e1e1;
+    font-weight: 500;
+    position: absolute;
+    top: 100px;
+    right: 40px;
+}
+.container-card .col1 .card-pay .back .chip {
+    bottom: 45px;
+    left: 10px;
+}
+.container-card .col1 .card-pay .back .disclaimer {
+    position: absolute;
+    width: 65%;
+    left: 80px;
+    color: #f1f1f1;
+    font-size: 8px;
+    bottom: 55px;
+}
+.container-card .col2{
+    text-align: center;
+}
+
+.container-card .col2 input {
+    display: block;
+    width: 75%;
+    max-width: 350px;
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: 7px auto;
+    font-size: 17px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    -webkit-transition: background 0.5s;
+    transition: background 0.5s;
+}
+.container-card .col2 input:focus {
+    outline-width: 0;
+    background: rgba(31, 134, 252, 0.15);
+    -webkit-transition: background 0.5s;
+    transition: background 0.5s;
+}
+.container-card .col2 label {
+    font-size: 15px;
+    color: #444;
+}
+
+
+
+.container-card .col2 .ccv {
+    width: 40%;
+}
+.buy {
+    width: 260px;
+    height: 50px;
+    position: relative;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: none;
+    background: #42C2DF;
+    color: white;
+    font-size: 20px;
+    -webkit-transition: background 0.4s;
+    transition: background 0.4s;
+    cursor: pointer;
+}
+.buy i {
+    font-size: 20px;
+}
+.buy:hover {
+    background: #3594A9;
+    -webkit-transition: background 0.4s;
+    transition: background 0.4s;
+}
+
+/*.chip {
+    position: absolute;
+    width: 55px;
+    height: 40px;
+    background: #bbb;
+    border-radius: 7px;
+}
+.chip:after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 25px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ddd;
+}*/
+
+/**** FINE CARTA DI CREDITO ***/
+
+
+
+.payment{
+    margin: 10px 5px;
+    padding: 15px;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);  
+    border-radius: 10px;
+}
+
+.spedizione{
+    margin: 10px 5px;
+    padding: 15px;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);  
+    border-radius: 10px;
+}
+
+.payment_accepted{
+    height: 45px;
+    padding: 5px;
+}
+
+.info_user_cart li span{
+    color: grey;
+    padding: 0 5px;
+}
+
+
+.paypal{
+    padding-left: 10px;  
+    padding-right: 120px;
+    background: url("../img/paypal.png");
+    background-size: 48%;   
+    background-position: 95px;
+    font-size: 13px;
+    background-repeat: no-repeat;
+}
+
+.paypal:hover{
+    background: #eee url("../img/paypal.png") !important;
+    background-size: 48% !important;
+    background-position: 95px !important;
+    background-repeat: no-repeat !important;
+}
+
+.alternative{
+    padding: 0 10px;
+}
+
+.main_search{
+    border: none !important;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.15) !important;
+}
+
+.main_search:focus{
+    background: white !important;
+    border: none !important;
+    box-shadow: 2px 6px 10px 0px rgba(46,61,73,0.15) !important;
+}
+
+.search_button{
+    border-radius: 5px;
+    display: inline-block;
+    height: 35px;
+    background: #02b3e4;
+    position: absolute;
+    border: none;
+    bottom: 0;
+    top: 0;
+    color: white;
+    right: 0px;
+    margin: 5px;
+    padding: 0 15px;
+}
+
+
+.search_button:hover{
+    background: #029fca;
+}
+
+.newcart{
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.15) !important;
+}
+
+.deleteItem{
+    border: none;
+    color: #02b3e4;
+    text-decoration: underline;
+    background: rgba(0,0,0,0);
+}
+
+.add_cart_icon{
+    padding: 25px 10px;
+    font-size: 60px;
+    color: #888;
+    position: absolute;
+}
+
+.total{
+    font-size: 21px;
+}
+
+.n_cart{
+    display: inline-block;
+    background: #02b3e4;
+    color: white;
+    padding: 5px;
+    right: 0;
+    margin-right: 15px;
+    border-radius: 50%;
+    line-height: 10px;
+    top: 5px;
+}
+
+.carrello{
+    margin: 20px 0;
+}
+
+
+/**
+ * Progresso carrello
+ */
+
+.progress_cart {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    color: #849397;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.progress_cart > li {
+    position: relative;
+    display: table-cell;
+    text-align: center;
+    font-size: 0.8em;
+}
+.progress_cart > li:before {
+    content: attr(data-step);
+    display: block;
+    margin: 0 auto;
+    background: #DFE3E4;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    margin-bottom: 0.25em;
+    line-height: 3em;
+    border-radius: 100%;
+    position: relative;
+    z-index: 500;
+}
+.progress_cart > li:after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: #f1f3f3;
+    width: 100%;
+    height: 0.5em;
+    top: 1.25em;
+    left: 50%;
+    margin-left: 1.5em\9;
+    z-index: 1;
+}
+.progress_cart > li:last-child:after {
+    display: none;
+}
+.progress_cart > li.is-complete {
+    color: #2ECC71;
+}
+.progress_cart > li.is-complete:before, .progress_cart > li.is-complete:after {
+    color: #FFF;
+    background: #2ECC71;
+}
+.progress_cart > li.is-active {
+    color: #3498DB;
+}
+.progress_cart > li.is-active:before {
+    color: #FFF;
+    background: #3498DB;
+}
+
+/**
+ * Needed for IE8
+ */
+.progress__last:after {
+    display: none !important;
+}
+
+/**
+ * Size Extensions
+ */
+.progress--medium {
+    font-size: 1.5em;
+}
+
+.progress--large {
+    font-size: 2em;
+}
+
+/**
+ */
+
+.modify_cart{
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 5px;
+    display: block;
+    box-shadow: 6px 8px 20px 0px rgba(46,61,73,0.15);  
+    background: white;
+    transition: all 0.3s;
+}
+
+.modify_cart:hover{
+    box-shadow: 2px 5px 10px 0px rgba(46,61,73,0.15); 
+    transition: all 0.3s;
+}
+
+.cart_quantity{
+    position: relative;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 50% !important;
+    display: block;
+}
+
+
+
+.myblue{
+    background-color: #02b3e4;
+}
+
+.myblue_text{
+    color: #02b3e4;
+}
+
+#index-banner{
+    border-radius: 0.375rem;
+}
+
+.slider .slides li img{
+    background-position: initial;
+    filter: brightness(70%);
+}
+
+.add_chart{
+    margin-bottom: 20px;
+    height: 45px !important;
+    line-height: 40px !important;
+}
+
+.add_chart i{
+    font-size: 1.3rem;
+    padding-right: 10px;
+}
+
+.targhetta_mobile{
+    padding: 5px 6px;
+    background: #bbb;
+}
+
+.btn{
+    background-color: #02b3e4;
+    box-shadow: 8px 10px 20px 0px rgba(46,61,73,0.15);  
+}
+
+.btn:hover{
+    background: #028bb1;
+    box-shadow: none;
+}
+
+.noUi-connect{
+    background-color: #02b3e4 !important;
+}
+
+[type="checkbox"].filled-in:checked+label:after{
+    background-color: #02b3e4;
+    border: 2px solid #02b3e4;
+}
+
+.button_section{
+    margin: 45px 0;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+.icon{
+    height: 100%;
+    padding-top: 5px;
+}
+
+.brand-logo{
+    color: #846C63 !important;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.nav-bar{
+    box-shadow: 0 10px 20px -8px rgba(0,0,0,0.1);
+}
+
+.nav-login{
+    height: 33px;
+    line-height: 33px;
+}
+
+.login-pad{
+    padding-top: 50px;
+}
+
+.select-wrapper input.select-dropdown{
+    height: 1.5rem;
+    margin-top: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal.modal-fixed-footer{
+    height: 50%;
+}
+
+.search-icon{
+    color: black !important;
+    line-height: 3rem !important;
+    height: 0;
+}
+
+.language-mobile{
+    margin-top: 50px;
+}
+
+
+.input-mobile-search{
+    width: 80% !important;
+    margin: auto !important;
+}
+
+.mobile-search{
+    margin-top: 20px !important;
+    border: 1px solid #aaa !important;
+    box-shadow: 0 5px 10px -4px rgba(0,0,0,0.1) !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.logged-mobile{
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+@media only screen and (max-width: 992px){
+    .modal {
+        min-height: 500px;
+    } 
+
+    .container-card .col1 .card-pay{
+        width: 100%;
+    }
+
+}
+
+
+@media only screen and (min-width: 992px){
+    .modal{
+        width: 550px;
+    }
+
+    .container-card .col1 .card-pay{
+        width: 400px;
+    }
+
+}
+
+.btn-floating.halfway-fab{
+    bottom: 10px;
+}
+
+.carousel-slider{
+    height: 350px !important;
+}
+
+.home_top{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    padding: 20px;
+}
+
+.price_top{
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    font-size: 20px;
+    padding: 6px;
+}
+
+.no-margin{
+    margin: 0 !important;
+}
+
+.padding-bottom{
+    padding-bottom: 10px !important;
+}
+
+.input-field input[type=search]:focus{
+    background: rgba(0,0,0,0);
+    border-color: #03a9f4 !important;
+}
+
+.icon-block p{
+    text-align: justify !important;
+}
+
+.smallest{
+    height: 150px !important;
+}
+
+.card.horizontal .card-image{
+    max-width: 35%;
+}
+
+.indicator-item{
+    width: 9px !important;
+    height: 9px !important;
+    margin: 6px !important;
+}
+
+/* Impostazioni slider  */
+
+.slider .indicators .indicator-item.active{
+    background-color: #03a9f4 !important;
+}
+
+
+.slider:hover > .button-slide{
+    background: rgba(255,255,255,1);
+}
+
+.slider:hover > .button-slide i{
+    color: #333;
+}
+
+.slider:hover > .previous-slide{
+    left: -25px;
+    transition: all 0.3s;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+}
+
+.slider:hover > .next-slide{
+    right: -25px;
+    transition: all 0.3s;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.15);
+}
+
+.button-slide{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0);
+    top: calc(50% - 70px);
+    color: white;
+    z-index: 100;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.button-slide i{
+    text-align: center;
+    line-height: 50px;
+    font-size: 32px;
+}
+
+.previous-slide{
+    left: 0;
+}
+
+.next-slide{
+    right: 0;
+}
+
+
+/*RATING STAR*/
+
+.star-ratings-css {
+    unicode-bidi: bidi-override;
+    color: #c5c5c5;
+    font-size: 1.2vh;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding: 0;
+    text-shadow: 0px 1px 0 #a2a2a2;
+}
+.star-ratings-css-top {
+    color: #e7711b;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.star-ratings-css-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+}
+
+.comment_home{
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2) !important;
+    border-radius: 0.375rem !important;
+}
+
+.produkt{
+    height: 360px !important;
+    background: #fff;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0);
+    background: rgba(0,0,0,0);
+    border-radius: 3px !important;
+    color: #444;
+}
+
+.produkt:hover{
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.1);
+}
+
+.card .card-action:last-child{
+    border-radius: 0.375rem;
+}
+
+.produkt .row{
+    margin: 0 !important;
+}
+
+.card .card-action{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    border-top: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0 !important;
+}
+
+.price-card{
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+
+.img-top{
+    width: 20px;
+    margin: 5px;
+}
+
+#overhidden{
+    overflow: hidden;
+}
+
+.mycumbs{
+    padding: 10px 0;
+}
+
+.mycumbs a{
+    color: rgba(0, 107, 179, 0.8);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.mycumbs a:after{
+    content: '/';
+    font-size: 13px;    
+    color: rgba(0,0,0,0.5);
+    margin: 0 12px;
+}
+
+.mycumbs a:last-child:after{
+    content: ' ';
+    font-size: 13px;    
+    color: rgba(0,0,0,0.5);
+    margin: 0 12px;
+}
+
+.access_console{    
+    position: relative;
+    margin: 50px 0px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-shadow: 5px 5px 25px 0px rgba(46,61,73,0.2);
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.select_access{
+    display: flex;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+}
+
+.sin{
+    box-sizing: border-box;
+    cursor: pointer;
+    background: #fafbfc;
+    border-bottom: 1px solid #dbe2e8;
+    font-weight: 600;
+    color: #7d97ad;
+    -webkit-box-flex: 1;
+    -ms-flex: auto;
+    flex: auto;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.sin a{
+    color: #777;
+}
+
+.btn-submit{
+    position: relative;
+    display:block;
+    margin: 20px auto;
+    background: #02b3e4;
+    font-size: 15px;
+    box-shadow: 8px 10px 20px 0px rgba(46,61,73,0.15);  
+}
+
+.btn-submit:hover{
+    background: #028bb1;
+    box-shadow: none;
+}
+
+.activesin{
+    background: white;
+    border-right: 1px solid #dbe2e8;
+    border-bottom: none;
+}
+
+.activesun{
+    background: white;
+    border-left: 1px solid #dbe2e8;
+    border-bottom: none;
+}
+
+
+.pro_img{
+    width: 100%;
+}
+
+.pro_title{
+    margin-top: 1.55em;
+}
+
+.short_desc{
+    font-weight: 500;
+    font-size: 18px;
+    color: #555;
+    padding: 30px 0px 0px 0px;  
+}
+
+.info{
+    font-weight: 300;
+    font-size: 17px;
+    color: #777;
+    padding-bottom: 15px;
+}
+
+.price{
+    border: none;
+    margin-left: -30px;
+}
+
+.price td, .price th{
+    padding: 0 5px;
+}
+
+.price .left_price{
+    text-align: right;
+    font-weight: 300;
+    color: #888;
+}
+
+.price .right_price{
+    text-align: left;
+    font-weight: 500;
+}
+
+.pro_quantity{
+    width: calc(100% - 60px) !important;
+    display: inline-block;
+}
+
+.pro_add{
+    background: #dfdfdf;
+    color: #444;
+    border-radius: 50%;
+    margin: 0;
+    font-size: 18px;
+    /* font-family: monospace; */
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    /* display: block; */
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.pro_add:hover{
+    background: #cecece;
+}
+
+.card.medium .card-image{
+    height: 200px; 
+}
+
+.card .card-image img{
+    height: 80%;
+    width: auto !important;
+    margin: auto;
+}
+.card .card-content .card-title{
+    font-size: 17px;
+}
+.card .card-content{
+    padding: 0 16px;
+}
+
