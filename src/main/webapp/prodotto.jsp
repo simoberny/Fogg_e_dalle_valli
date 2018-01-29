@@ -67,11 +67,11 @@
                             <tbody>
                                 <tr>
                                     <th class="left_price"><fmt:message key="price"/></th>
-                                    <td class="right_price" style="text-decoration: line-through;"><%=i.prezzo%>€</td>
+                                    <td class="right_price" style="text-decoration: line-through;"><%=df.format(i.prezzo * (100 + 22) / 100)%>€</td>
                                 </tr>
                                 <tr>
                                     <th class="left_price"><fmt:message key="low_price"/></th>
-                                    <td class="right_price"><%=df.format(i.prezzo * (100 - 22) / 100)%>€</td>
+                                    <td class="right_price"><%=i.prezzo%>€</td>
                                 </tr>
                                 <tr>
                                     <th class="left_price">IVA 22% inc</th>
