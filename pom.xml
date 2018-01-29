@@ -7,7 +7,7 @@
     <version>0.5-Beta</version>
     <packaging>war</packaging>
 
-    <name>Fogg_E_Dalle_Valli_Maven</name>
+    <name>Fogg_E_Dalle_Valli_MavenGit</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

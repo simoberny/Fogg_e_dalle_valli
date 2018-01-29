@@ -132,8 +132,9 @@
                                 String ordinamento = request.getParameter("ordinamento");
 
                                 List<Item> list = Item.cerca(txt, min, max, categoria, voto, venditore, ordinamento, (request.getParameter("npag") != null ? Integer.parseInt(request.getParameter("npag")) : 1));
-
+                                int ii = 0;
                                 for (Item item : list) {
+                                    //System.out.println("i"+ (ii++) + " nome: " + item.nome); //ok
                             %>
                             <div class="col s12 m12 l5 xl4">
                                 <a href="prodotto.jsp?idprodotto=<%=item.id_articolo%>">

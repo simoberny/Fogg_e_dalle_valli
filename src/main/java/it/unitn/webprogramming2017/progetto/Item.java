@@ -112,21 +112,25 @@ public class Item {
             }
 
         }
-
-        if (npag > 0) {
+        
+        if (npag > 0 && (txt == null || txt == "") ) {
             sql += " limit " + 20*(npag-1) + "," + 20;
+            System.out.println("npag " + npag);
         }
 
 
 
         Statement stmt = DBManager.CON.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
-
+        //System.out.println("rs: " + rs.);
+         int ii = 1;
         if (txt != null && txt != "") {
-
+           
             while (rs.next()) {
+                System.out.println();
                 Document doc = new Document();
                 doc.add(new TextField("nome", rs.getString("nome"), Field.Store.YES));
+                //System.out.println("i: "+ ii++ + " nome: " + rs.getString("nome")); //ok
                 doc.add(new TextField("id_articolo", rs.getString("id_articolo"), Field.Store.YES));
                 doc.add(new TextField("descrizione", rs.getString("descrizione"), Field.Store.YES));
                 doc.add(new TextField("foto", rs.getString("foto"), Field.Store.YES));
@@ -154,12 +158,14 @@ public class Item {
 
             Item back;
 
-            for (int i = 0; i < hits.length; ++i) {
+            for (int i = ((npag-1)*20); i < (hits.length<(npag*20)?hits.length:(npag*20)) ; ++i) {
+                //System.out.println("npag: " + npag + " i = " + ((npag-1)*20) + " i < " + (hits.length>(npag*20)?hits.length:(npag*20)));
                 int docId = hits[i].doc;
                 Document d = searcher.doc(docId);
                 back = new Item();
                 back.id_articolo = Integer.parseInt(d.get("id_articolo"));
                 back.nome = d.get("nome");
+                System.out.println("i: "+ ii++ + " nome: " + d.get("nome"));
                 back.descrizione = d.get("descrizione");
                 back.foto = d.get("foto");
                 back.prezzo = Double.parseDouble(d.get("prezzo"));
@@ -175,7 +181,9 @@ public class Item {
 
         } else {
             Item back;
+            
             while (rs.next()) {
+                //System.out.println("i: "+ ii++ + " nome: " + rs.getString("nome"));
                 back = new Item();
                 back.id_articolo = Integer.parseInt(rs.getString("id_articolo"));
                 back.nome = rs.getString("nome");
