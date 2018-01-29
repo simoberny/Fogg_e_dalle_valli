@@ -35,7 +35,7 @@ public class DBManager {
         CON = null;
 
         try {
-            CON = DriverManager.getConnection(dbpath, "root", "toor");
+            CON = DriverManager.getConnection(dbpath, "root", "");
             System.out.println("Connesso!");
         } catch (Exception e) {
             System.out.println("Non è possibile connettersi al database!");

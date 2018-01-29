@@ -100,15 +100,6 @@
                             </select>
                             <label>Ordina</label>
                         </div>
-                            <ul class="pagination center">                               
-                               
-                                <input id ="pagenum" type="hidden" name="npag" value="1"/>
-                                <% if ( ((request.getParameter("npag") != null ? Integer.parseInt(request.getParameter("npag")) : 1)) > 1) { %>
-                                <li class="waves-effect" onclick="decrementa()"><i id="prevPag" class="material-icons">chevron_left</i></li> 
-                                <% } %>
-                                <li class="waves-effect" ><%= (request.getParameter("npag") != null ? request.getParameter("npag") : 1) %></li>
-                                <li class="waves-effect" onclick="incrementa()"><i id="succPag" class="material-icons">chevron_right</i></li>                                                                
-                            </ul>
                         <div class="col s12 m6 l8 xl9">
 
                             <%
@@ -165,8 +156,24 @@
                             <%
                                 }
                             %>                            
-
+                            <div class="row">
+                                
+                            <div class="col s12">
+                                <hr/>
+                                <ul class="pagination center">              
+                                    <input id ="pagenum" type="hidden" name="npag" value="1"/>
+                                    <% if ( ((request.getParameter("npag") != null ? Integer.parseInt(request.getParameter("npag")) : 1)) > 1) { %>
+                                    <li class="waves-effect" onclick="decrementa()"><i id="prevPag" class="material-icons">chevron_left</i></li> 
+                                    <% } %>
+                                    <li class="waves-effect page_num" ><%= (request.getParameter("npag") != null ? request.getParameter("npag") : 1) %></li>
+                                    <li class="waves-effect" onclick="incrementa()"><i id="succPag" class="material-icons">chevron_right</i></li>                                                                
+                                </ul>
+                            </div>
                         </div>
+                        
+                        </div>
+
+
                     </div>
                 </form>
             </div>
