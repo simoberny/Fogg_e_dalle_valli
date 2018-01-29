@@ -123,9 +123,13 @@
                                 String ordinamento = request.getParameter("ordinamento");
 
                                 List<Item> list = Item.cerca(txt, min, max, categoria, voto, venditore, ordinamento, (request.getParameter("npag") != null ? Integer.parseInt(request.getParameter("npag")) : 1));
-                                int ii = 0;
+                                //int ii = 0;
+                                if(list.size() == 0){%>
+                                <h5> nessun prodotto </h5>                                   
+                                <% }
                                 for (Item item : list) {
                                     //System.out.println("i"+ (ii++) + " nome: " + item.nome); //ok
+                                
                             %>
                             <div class="col s12 m12 l5 xl4">
                                 <a href="prodotto.jsp?idprodotto=<%=item.id_articolo%>">
@@ -166,7 +170,9 @@
                                     <li class="waves-effect" onclick="decrementa()"><i id="prevPag" class="material-icons">chevron_left</i></li> 
                                     <% } %>
                                     <li class="waves-effect page_num" ><%= (request.getParameter("npag") != null ? request.getParameter("npag") : 1) %></li>
-                                    <li class="waves-effect" onclick="incrementa()"><i id="succPag" class="material-icons">chevron_right</i></li>                                                                
+                                    <%  if(list.size() == 20){  %>
+                                    <li class="waves-effect" onclick="incrementa()"><i id="succPag" class="material-icons">chevron_right</i></li>
+                                    <% } %>
                                 </ul>
                             </div>
                         </div>

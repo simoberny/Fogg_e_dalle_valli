@@ -115,7 +115,7 @@ public class Item {
         
         if (npag > 0 && (txt == null || txt == "") ) {
             sql += " limit " + 20*(npag-1) + "," + 20;
-            System.out.println("npag " + npag);
+            //System.out.println("npag " + npag);
         }
 
 
@@ -127,7 +127,7 @@ public class Item {
         if (txt != null && txt != "") {
            
             while (rs.next()) {
-                System.out.println();
+                //System.out.println();
                 Document doc = new Document();
                 doc.add(new TextField("nome", rs.getString("nome"), Field.Store.YES));
                 //System.out.println("i: "+ ii++ + " nome: " + rs.getString("nome")); //ok
@@ -153,19 +153,19 @@ public class Item {
             IndexSearcher searcher = new IndexSearcher(reader);
             QueryParser parser = new QueryParser("nome", standardAnalyzer);
             Query query = parser.parse(txt + "~1");
-            TopDocs results = searcher.search(query, 10);
+            TopDocs results = searcher.search(query, 100);
             ScoreDoc[] hits = results.scoreDocs;
 
             Item back;
 
             for (int i = ((npag-1)*20); i < (hits.length<(npag*20)?hits.length:(npag*20)) ; ++i) {
-                //System.out.println("npag: " + npag + " i = " + ((npag-1)*20) + " i < " + (hits.length>(npag*20)?hits.length:(npag*20)));
+                //System.out.println("tot: "+ hits.length + " i first: "+ ((npag-1)*20) + " i last: "+ ((hits.length<(npag*20)?hits.length:(npag*20))-1) + " nome: " + d.get("nome") );
                 int docId = hits[i].doc;
                 Document d = searcher.doc(docId);
                 back = new Item();
                 back.id_articolo = Integer.parseInt(d.get("id_articolo"));
                 back.nome = d.get("nome");
-                System.out.println("i: "+ ii++ + " nome: " + d.get("nome"));
+                
                 back.descrizione = d.get("descrizione");
                 back.foto = d.get("foto");
                 back.prezzo = Double.parseDouble(d.get("prezzo"));
