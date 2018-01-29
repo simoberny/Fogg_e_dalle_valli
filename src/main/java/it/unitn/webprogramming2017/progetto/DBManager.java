@@ -23,7 +23,7 @@ import com.lambdaworks.crypto.*;
 public class DBManager {
 
     public static transient Connection CON;
-    private final static String dbpath = "jdbc:mysql://localhost:3306/storedb?characterEncoding=utf8";
+    private final static String dbpath = "jdbc:mysql://sql2.freemysqlhosting.net:3306/sql2218342?characterEncoding=utf8";
 
     public DBManager() throws SQLException {
         try {
@@ -35,10 +35,11 @@ public class DBManager {
         CON = null;
 
         try {
-            CON = DriverManager.getConnection(dbpath, "root", "");
+            CON = DriverManager.getConnection(dbpath, "sql2218342", "dV1%qA3%");
             System.out.println("Connesso!");
         } catch (Exception e) {
             System.out.println("Non è possibile connettersi al database!");
+            System.out.println(e.getMessage());
         }
     }
 
