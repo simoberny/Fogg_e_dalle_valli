@@ -32,12 +32,12 @@ public class Utility {
     }
 
     public static Integer prodotti_venditore(String venditore) throws SQLException {
-        Integer num = 1;
-        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) FROM articolo WHERE negozio = ?")) {
+        Integer num = 0;
+        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) AS total FROM articolo WHERE negozio = ?")) {
             stm.setString(1, venditore);
             try (ResultSet rs = stm.executeQuery()) {
-                while (rs.next()) {
-                    num++;
+                if (rs.next()) {
+                    num = rs.getInt("total");
                 }
             }
         }

@@ -98,21 +98,21 @@ public class Notifica {
     }
 
     public static Integer getNNotifiche(String venditore) throws SQLException {
-        Integer num = 1;
-        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) FROM articolo, acquisto WHERE lettura = 0 AND articolo.negozio = ? AND articolo.id_articolo = acquisto.id_articolo")) {
+        Integer num = 0;
+        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) AS notifiche FROM articolo, acquisto WHERE lettura = 0 AND articolo.negozio = ? AND articolo.id_articolo = acquisto.id_articolo")) {
             stm.setString(1, venditore);
             try (ResultSet rs = stm.executeQuery()) {
-                while (rs.next()) {
-                    num++;
+                if (rs.next()) {
+                    num = rs.getInt("notifiche");
                 }
             }
         }
 
-        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) FROM segnalazione, negozio WHERE negozio.venditore = segnalazione.id_destinatario AND lettura = 0 AND negozio.nome = ?")) {
+        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) AS notifiche FROM segnalazione, negozio WHERE negozio.venditore = segnalazione.id_destinatario AND lettura = 0 AND negozio.nome = ?")) {
             stm.setString(1, venditore);
             try (ResultSet rs = stm.executeQuery()) {
-                while (rs.next()) {
-                    num++;
+                if (rs.next()) {
+                    num += rs.getInt("notifiche");
                 }
             }
         }

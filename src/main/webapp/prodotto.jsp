@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="it.unitn.webprogramming2017.progetto.Item"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -8,6 +9,7 @@
 <%    String id = request.getParameter("idprodotto");
 
     Item i = Item.getById(Integer.parseInt(id));
+    DecimalFormat df = new DecimalFormat("#.00");
 %>
 
 <div class="container">
@@ -64,12 +66,12 @@
                         <table class="price">     
                             <tbody>
                                 <tr>
-                                    <th class="left_price"><fmt:message key="low_price"/></th>
-                                    <td class="right_price"><%=i.prezzo * (100 - 22) / 100%>€</td>
+                                    <th class="left_price"><fmt:message key="price"/></th>
+                                    <td class="right_price" style="text-decoration: line-through;"><%=i.prezzo%>€</td>
                                 </tr>
                                 <tr>
-                                    <th class="left_price"><fmt:message key="price"/></th>
-                                    <td class="right_price"><%=i.prezzo%>€</td>
+                                    <th class="left_price"><fmt:message key="low_price"/></th>
+                                    <td class="right_price"><%=df.format(i.prezzo * (100 - 22) / 100)%>€</td>
                                 </tr>
                                 <tr>
                                     <th class="left_price">IVA 22% inc</th>
