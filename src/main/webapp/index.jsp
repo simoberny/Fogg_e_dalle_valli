@@ -222,11 +222,6 @@
             $(".slider").mouseout(function () {
                 $(this).slider('start');
             });
-
-            $("#search").focus(function () {
-                $("body").css("filter", "brightness(20%)");
-            });
-
         });
 
         $(document).ready(function () {

@@ -154,9 +154,9 @@
 
                         <li>
                             <div class="search-wrapper">
-                                <form action="ricerca.jsp">
+                                <form action="ricerca.jsp" method="GET">
                                     <div class="input-field input-mobile-search center-block">
-                                        <input id="search" class="mobile-search" type="search" required>
+                                        <input id="search" name="txt" class="mobile-search" type="search" required>
                                         <i class="material-icons search-icon">search</i>
                                     </div>
                                 </form>
