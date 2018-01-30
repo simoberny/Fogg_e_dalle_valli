@@ -106,8 +106,8 @@
                         <form>
                             <select class="icons blue-grey-text darken-4-text" id="language" name="language" onchange="submit()">
                                 <option value="" disabled><fmt:message key="lingua"/></option>
-                                <option value="it" data-icon="img/it.png" class="circle" ${param.language == 'it' ? 'selected' : ''}>Italian</option>
                                 <option value="en" data-icon="img/uk.gif" class="circle" ${param.language == 'en' ? 'selected' : ''}>English</option>
+                                <option value="it" data-icon="img/it.png" class="circle" ${param.language == 'it' ? 'selected' : ''}>Italian</option>
                             </select>
                             <c:forEach var="pageParameter" items="${param}">
                                 <input type="hidden" name="${pageParameter.key}" value="${pageParameter.value}">   
@@ -182,8 +182,9 @@
                                 <form>
                                     <select class="icons blue-grey-text darken-4-text" id="language" name="language" onchange="submit()">
                                         <option value="" disabled><fmt:message key="lingua"/></option>
-                                        <option value="it" data-icon="img/it.png" class="circle" ${param.language == 'it' ? 'selected' : ''}>Italian</option>
+                                        
                                         <option value="en" data-icon="img/uk.gif" class="circle" ${param.language == 'en' ? 'selected' : ''}>English</option>
+                                        <option value="it" data-icon="img/it.png" class="circle" ${param.language == 'it' ? 'selected' : ''}>Italian</option>
                                     </select>
                                 </form>
                             </div>
