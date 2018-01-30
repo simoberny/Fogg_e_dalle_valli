@@ -1,6 +1,8 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="intestazione.jsp" %>
+
 
 <div class="section white">
     <div class="container">

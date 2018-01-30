@@ -106,7 +106,11 @@ public class CartBean {
     }
 
     public double getOrderTotal() {
-        return dblOrderTotal;
+        double val = dblOrderTotal;
+        val = val*100;
+        val = Math.round(val);
+        val = val /100;
+        return val;
     }
 
     public void setOrderTotal(double dblOrderTotal) {
