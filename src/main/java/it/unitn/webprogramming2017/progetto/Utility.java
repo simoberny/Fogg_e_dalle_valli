@@ -30,6 +30,19 @@ public class Utility {
 
         return num;
     }
+    
+    public static Integer articoli_num() throws SQLException {
+        Integer num = 0;
+        try (PreparedStatement stm = CON.prepareStatement("SELECT COUNT(*) AS total FROM articolo")) {
+            try (ResultSet rs = stm.executeQuery()) {
+                if (rs.next()) {
+                    num = rs.getInt("total");
+                }
+            }
+        }
+
+        return num;
+    }
 
     public static Integer prodotti_venditore(String venditore) throws SQLException {
         Integer num = 0;

@@ -46,7 +46,7 @@
                             </div>
                             <div class="col s10">
                                 <div class="card-content white-text">
-                                    <span class="card-title card_admin_title"><%=Item.cerca("", 0.0, 1000.0, null, null, null, null).size()%></span>
+                                    <span class="card-title card_admin_title"><%=Utility.articoli_num()%></span>
                                     <h5>Prodotti</h5>
                                 </div>
                             </div>
