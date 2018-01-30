@@ -9,14 +9,14 @@
         <div class="row">
             <div class="container">
                 <div class="divider"></div>
-                <div class="col s3">
+                <div class="col s12 m3">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
                         <h5 class="center">Negozi</h5>
                         <p class="light">Il nostro store è trasparente e affidabile. Ecco la lista dei nostri negozi in ordine decrescente per affidabilità</p>
                     </div>
                 </div>
-                <div class="col s7 offset-s1 ">
+                <div class="col s12 m7 offset-m1 ">
                     <br><br>
                         <table class="bordered highlight">
                             <thead>

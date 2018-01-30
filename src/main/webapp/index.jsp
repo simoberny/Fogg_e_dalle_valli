@@ -69,7 +69,7 @@
                     <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
                     <h5 class="center"><fmt:message key="sped_home"/></h5>
 
-                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                    <p class="light">Thanks to our automated logistics, the order is waiting for less than 48 hours. Speed ​​is our strength.</p>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                     <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
                     <h5 class="center"><fmt:message key="affidabilita"/></h5>
 
-                    <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                    <p class="light">Reliability means trust, we do not tolerate mistakes towards our customers. You can trust us.</p>
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
                     <h2 class="center light-blue-text"><i class="material-icons">attach_money</i></h2>
                     <h5 class="center"><fmt:message key="superprezzi"/></h5>
 
-                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                    <p class="light"> We offer the lowest prices on the Web !, the products from us are all original. We have Superprice thanks to the purchase in stock and to the efficiency of the company.</p>
                 </div>
             </div>
         </div>

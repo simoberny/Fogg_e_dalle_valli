@@ -128,8 +128,8 @@
 
                     <li><a href="ricerca.jsp" class="blue-grey-text darken-3-text"><fmt:message key="product"/></a></li>
                     <li><a href="venditori.jsp" class="blue-grey-text darken-3-text"><fmt:message key="sellers"/></a></li>
-                    <li><a href="" class="blue-grey-text darken-3-text"><fmt:message key="who"/></a></li>
-                    <li><a href="" class="blue-grey-text darken-3-text"><fmt:message key="contact"/></a></li>
+                    <li><a href="aboutus.jsp" class="blue-grey-text darken-3-text"><fmt:message key="who"/></a></li>
+                    <li><a href="contacts.jsp" class="blue-grey-text darken-3-text"><fmt:message key="contact"/></a></li>
                         <c:if test="${loggedin}">
                         <li><a href="user.jsp" class="blue-grey-text darken-3-text"><fmt:message key="account"/></a></li>
                         </c:if>

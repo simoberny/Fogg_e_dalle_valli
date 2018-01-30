@@ -169,7 +169,7 @@
                                     <% if ( ((request.getParameter("npag") != null ? Integer.parseInt(request.getParameter("npag")) : 1)) > 1) { %>
                                     <li class="waves-effect" onclick="decrementa()"><i id="prevPag" class="material-icons">chevron_left</i></li> 
                                     <% } %>
-                                    <li class="waves-effect page_num" ><%= (request.getParameter("npag") != null ? request.getParameter("npag") : 1) %></li>
+                                    <li><%= (request.getParameter("npag") != null ? request.getParameter("npag") : 1) %></li>
                                     <%  if(list.size() == 20){  %>
                                     <li class="waves-effect" onclick="incrementa()"><i id="succPag" class="material-icons">chevron_right</i></li>
                                     <% } %>
