@@ -164,6 +164,8 @@
                 out.print("<h1>Errore</h1>");
             }
 
+            sql = "SELECT * FROM articolo ORDER BY nome LIMIT 4";
+            stm = DBManager.CON.prepareStatement(sql);
             try (ResultSet rs = stm.executeQuery()) {
                 while (rs.next()) {
 
