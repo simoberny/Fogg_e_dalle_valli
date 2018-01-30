@@ -12,8 +12,8 @@
                 <div class="col s12 m3">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                        <h5 class="center">Negozi</h5>
-                        <p class="light">Il nostro store è trasparente e affidabile. Ecco la lista dei nostri negozi in ordine decrescente per affidabilità</p>
+                        <h5 class="center">Sellers</h5>
+                        <p class="light">Our store is transparent and reliable. Here is the list of our stores in descending order for reliability.</p>
                     </div>
                 </div>
                 <div class="col s12 m7 offset-m1 ">
@@ -21,9 +21,9 @@
                         <table class="bordered highlight">
                             <thead>
                                 <tr>
-                                    <th>Nome negozio</th>
-                                    <th>N° oggetti venduti</th>
-                                    <th>Affidabilità</th>   
+                                    <th>Shop name</th>
+                                    <th>N° item on sale</th>
+                                    <th>Reliability</th>   
                                 </tr>
                             </thead>
                             <tbody>

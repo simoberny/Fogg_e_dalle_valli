@@ -9,12 +9,12 @@
                     <c:choose>
                         <c:when test="${param.type eq 'recover'}">
                             <div class="row">
-                                <h5 class="center">Password dimenticata?</h5>
+                                <h5 class="center">forgot password?</h5>
                                 <form class="col s12" method="POST" action="RecoverPassword" id="login_form">
                                     <div class="row login-pad">
                                         <div class="input-field col s12">
                                             <input id="email" type="email" name="email" class="validate">
-                                            <label for="email">Inserire l'email per recuperare la password</label>
+                                            <label for="email">Enter the email to recover the password</label>
                                         </div>
                                         <!--<div class="input-field col s12">
                                             <p>
@@ -25,13 +25,13 @@
                                         <input type="hidden" name="from" value="${pageContext.request.requestURI}">
                                     </div>
                                     <input type="hidden" name="action" value="request">
-                                    <button class="btn waves-effect waves-light btn-submit" type="submit" name="invio">Invia</button>
+                                    <button class="btn waves-effect waves-light btn-submit" type="submit" name="invio">Send</button>
                                 </form>
                             </div>
                         </c:when>
                         <c:when test="${param.type eq 'new'}">
                             <div class="row">
-                                <h5 class="center">Nuova Password</h5>
+                                <h5 class="center">New Password</h5>
                                 <form class="col s12" method="POST" action="RecoverPassword" id="login_form">
                                     <div class="row login-pad">
                                         <div class="input-field col s12">
@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="input-field col s12">
                                             <input id="confirm_password" type="password" class="validate" name="password2" required>
-                                            <label for="confirm_password">Conferma Password</label>
+                                            <label for="confirm_password">Confirm Password</label>
                                         </div>
                                         <!--<div class="input-field col s12">
                                             <p>
@@ -52,7 +52,7 @@
                                     </div>
                                     <input type="hidden" name="email" value="<c:out value="${param.email}"/>">
                                     <input type="hidden" name="action" value="change">
-                                    <button class="btn waves-effect waves-light btn-submit" type="submit" name="invio">Salva</button>
+                                    <button class="btn waves-effect waves-light btn-submit" type="submit" name="invio">Save</button>
                                 </form>
                             </div>
                         </c:when>

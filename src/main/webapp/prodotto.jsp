@@ -61,7 +61,7 @@
                                 <i class="star-5">★</i>
                             </div>
                         </span>
-                        <span><%=i.n_recensioni%> Recensioni</span>
+                        <span><%=i.n_recensioni%> Reviews</span>
                         <p class="info"><%=i.descrizione.substring(0, Math.min(100, i.descrizione.length() - 1))%>...</p>
                         <table class="price">     
                             <tbody>
@@ -116,19 +116,19 @@
         <div class="row">    
             <div class="col s10 offset-s1">
                 <h5 class="blue-grey-text darken-2-text">
-                    Recensioni
+                    Reviews
                 </h5>
                 <%
                     String sql = "SELECT * FROM recensione WHERE id_articolo = " + i.id_articolo + " ORDER BY voto";
                     PreparedStatement stm = DBManager.CON.prepareStatement(sql);
 
                     if (stm == null) {
-                        out.print("<h1>Errore</h1>");
+                        out.print("<h1>Error</h1>");
                     }
 
                     try (ResultSet rs = stm.executeQuery()) {
                         if (!rs.next()) {
-                            out.print("<h5 class=\"center blue-grey-text\">Ancora nessun recensione!</h5>");
+                            out.print("<h5 class=\"center blue-grey-text\">No reviews avaiable!</h5>");
                         }
                         rs.previous();
                         while (rs.next()) {

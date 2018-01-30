@@ -8,30 +8,30 @@
             <div class="col s12 m10 offset-m1">
                 <ol class="progress_cart">
                     <li class="is-active" data-step="1">
-                        Carrello
+                        Cart
                     </li>
                     <li data-step="2">
-                        Pagamento e spedizione
+                        payment and shipping
                     </li>
                     <li data-step="3" class="progress__last">
-                        Completato
+                        Completed
                     </li>
                 </ol>
-                <h4 class="blue-grey-text">Carrello</h4>
+                <h4 class="blue-grey-text">Cart</h4>
                 <div class="divider"></div>
                 <div class="carrello">
                     <c:if test="${cart.lineItemCount==0}">
-                        <h4 class="center">Il carrello è vuoto</h4><br/>
+                        <h4 class="center">The cart is empty</h4><br/>
                     </c:if>
                     <c:if test="${cart.lineItemCount!=0}">
                         <table class="striped">
                             <thead>
                                 <tr>
                                     <td></td>
-                                    <td>Nome Prodotto</td>
-                                    <td>Quantità</td>
-                                    <td>Prezzo Unitario</td>
-                                    <td>Totale</td>
+                                    <td>Product name</td>
+                                    <td>Quantity</td>
+                                    <td>Price</td>
+                                    <td>Tot</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +68,6 @@
                                 <tr class="white">
                                     <td colspan="3">
                                         <a href="checkout.jsp"><button class="waves-effect waves-light btn add_chart" name="add_to_cart"><i class="material-icons">done_all</i><fmt:message key="finish"/></button></a>
-                                        <button class="waves-effect waves-light btn add_chart white black-text" name="add_to_cart"><i class="material-icons">delete_forever</i><fmt:message key="deletecart"/></button></td>
                                     <td></td>
                                     <td></td>
                                 </tr>

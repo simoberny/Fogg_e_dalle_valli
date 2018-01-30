@@ -30,7 +30,7 @@
                             <div class="input-field">
                                 <input id="search" type="search" name="txt" class="white main_search" value="<%= (request.getParameter("txt") != null) ? request.getParameter("txt") : ""%>">
                                 <label class="label-icon" for="search"><i class="material-icons blue-grey-text darken-3-text">search</i></label>
-                                <input class="search_button" type="submit" class="right" value="Cerca"/>
+                                <input class="search_button" type="submit" class="right" value="Search"/>
                             </div>
                         </div>
                         <div class="col s12 m6 l4 xl3">
@@ -46,7 +46,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="collapsible-header active"><i class="material-icons">blur_on</i>Categoria</div>
+                                    <div class="collapsible-header active"><i class="material-icons">blur_on</i>Categories</div>
                                     <div class="collapsible-body white">
                                         <p>
                                             <input type="radio" class="filled-in" name="category" value="tutte" id="Tutte" onchange="this.form.submit()" <%=(request.getParameter("category") != null && request.getParameter("category").equals("tutte")) ? "checked" : ""%>/>
@@ -69,7 +69,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="collapsible-header active"><i class="material-icons">whatshot</i>Media recensioni</div>
+                                    <div class="collapsible-header active"><i class="material-icons">whatshot</i>Reviews average</div>
                                     <div class="collapsible-body white">
                                         <c:forEach begin="1" end="4" varStatus="loop">
                                             <button name="voto" value="${loop.index}" style="margin: 5px 0; background: rgba(0,0,0,0); border: none;">
@@ -79,7 +79,7 @@
                                                     <i class="star-3">★</i>
                                                     <i class="star-4">★</i>
                                                     <i class="star-5">★</i>
-                                                    o più
+                                                    or more
                                                 </div>
                                             </button>
 
@@ -94,11 +94,12 @@
                         <input type="hidden" name="page" value="segnalazioni"/>
                         <div class="input-field col s12 m6 l3">
                             <select onchange="this.form.submit()" name="ordinamento">
-                                <option value="prezzo_cre" <%=(request.getParameter("ordinamento") != null && request.getParameter("ordinamento").equals("prezzo_cre")) ? "selected" : " "%>>Ordina per prezzo decrescente</option>
-                                <option value="prezzo_dec" <%=(request.getParameter("ordinamento") != null && request.getParameter("ordinamento").equals("prezzo_dec")) ? "selected" : " "%>>Ordina per prezzo crescente</option>
-                                <option value="recensioni" <%=(request.getParameter("ordinamento") != null && request.getParameter("ordinamento").equals("recensioni")) ? "selected" : " "%>>Ordina per recensioni crescenti</option>
+                                <option value="" >Relevance</option>
+                                <option value="recensioni" <%=(request.getParameter("ordinamento") != null && request.getParameter("ordinamento").equals("recensioni")) ? "selected" : " "%>>Avg. costumer review</option>
+                                <option value="prezzo_cre" <%=(request.getParameter("ordinamento") != null && request.getParameter("ordinamento").equals("prezzo_cre")) ? "selected" : " "%>>Price: Low to High</option>
+                                <option value="prezzo_dec" <%=(request.getParameter("ordinamento") != null && request.getParameter("ordinamento").equals("prezzo_dec")) ? "selected" : " "%>>Price: High to Low</option>
                             </select>
-                            <label>Ordina</label>
+                            <label>Sort by</label>
                         </div>
                         <div class="col s12 m6 l8 xl9">
 

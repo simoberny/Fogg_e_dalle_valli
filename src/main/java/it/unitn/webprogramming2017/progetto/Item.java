@@ -75,7 +75,9 @@ public class Item {
         }
         return back;
     }
-
+    public static List<Item> cerca(String txt, Double min, Double max, String categoria, Integer voto, String venditore, String ordinamento) throws SQLException, IOException, ParseException {
+        return cerca(txt, min, max, categoria, voto, venditore,ordinamento, 0);
+    }
     public static List<Item> cerca(String txt, Double min, Double max, String categoria, Integer voto, String venditore, String ordinamento, int npag) throws SQLException, IOException, ParseException {
 
         List<Item> l = new ArrayList();
@@ -98,13 +100,13 @@ public class Item {
             sql += " and negozio = \"" + venditore + "\"";
         }
 
-        if (ordinamento != null) {
+        if (ordinamento != null && ordinamento != "") {
             switch (ordinamento) {
                 case "prezzo_cre":
-                    sql += " ORDER BY prezzo DESC";
+                    sql += " ORDER BY prezzo ASC";
                     break;
                 case "prezzo_dec":
-                    sql += " ORDER BY prezzo ASC";
+                    sql += " ORDER BY prezzo DESC";
                     break;
                 case "recensioni":
                     sql += " ORDER BY media_recensioni DESC";
@@ -141,8 +143,8 @@ public class Item {
                 doc.add(new TextField("data_inserimento", rs.getString("data_inserimento"), Field.Store.YES));
                 if (categoria != null) {
                     doc.add(new TextField("categoria_1", rs.getString("categoria_1"), Field.Store.YES));
-                    doc.add(new TextField("categoria_2", rs.getString("categoria_2"), Field.Store.YES));
-                    doc.add(new TextField("categoria_3", rs.getString("categoria_3"), Field.Store.YES));
+                    //doc.add(new TextField("categoria_2", rs.getString("categoria_2"), Field.Store.YES));
+                    //doc.add(new TextField("categoria_3", rs.getString("categoria_3"), Field.Store.YES));
                 }
                 writer.addDocument(doc);
             }
@@ -157,8 +159,15 @@ public class Item {
             ScoreDoc[] hits = results.scoreDocs;
 
             Item back;
-
-            for (int i = ((npag-1)*20); i < (hits.length<(npag*20)?hits.length:(npag*20)) ; ++i) {
+            
+            int istart = 0;
+            int iend = hits.length;
+            if (npag > 0){
+                istart = ((npag-1)*20);
+                iend = (hits.length<(npag*20)?hits.length:(npag*20));
+            }
+            
+            for (int i = istart; i < iend; ++i) {
                 //System.out.println("tot: "+ hits.length + " i first: "+ ((npag-1)*20) + " i last: "+ ((hits.length<(npag*20)?hits.length:(npag*20))-1) + " nome: " + d.get("nome") );
                 int docId = hits[i].doc;
                 Document d = searcher.doc(docId);

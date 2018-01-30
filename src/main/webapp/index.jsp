@@ -22,9 +22,9 @@
         <div class="col s12 xl10 offset-xl1">
             <form method="GET" action="ricerca.jsp">
                 <div class="input-field">
-                    <input id="search" type="search" name="txt" class="white main_search autocomplete"  autocomplete="off" required placeholder="Cerca ...">
+                    <input id="search" type="search" name="txt" class="white main_search autocomplete"  autocomplete="off" required placeholder="Search ...">
                     <label class="label-icon" for="search"><i class="material-icons blue-grey-text darken-3-text">search</i></label>
-                    <input class="search_button" type="submit" class="right" value="Cerca"/>
+                    <input class="search_button" type="submit" class="right" value="Search"/>
                 </div>
                 <br>
             </form>
@@ -38,14 +38,14 @@
                         <img src="img/1.jpg"> <!-- random image -->
                         <div class="caption center-align">
                             <h3>MSI GTX 1080</h3>
-                            <h5 class="light grey-text text-lighten-3">Nuovo sistema Twin Frozr V</h5>
+                            <h5 class="light grey-text text-lighten-3">New Twin Frozr V system</h5>
                         </div>
                     </li>
                     <li>
                         <img src="img/2.jpg"> <!-- random image -->
                         <div class="caption left-align">
                             <h3>MSI Z270</h3>
-                            <h5 class="light grey-text text-lighten-3">Nuove schede madri MSI</h5>
+                            <h5 class="light grey-text text-lighten-3">New motherboards MSI</h5>
                         </div>
                     </li>
                     <li>
@@ -55,7 +55,7 @@
                         <img src="img/4.jpg"> <!-- random image -->
                         <div class="caption center-align">
                             <h3>Sapphire RX 580</h3>
-                            <h5 class="light grey-text text-lighten-3">Qualità/Prezzo imbattibili!</h5>
+                            <h5 class="light grey-text text-lighten-3">Simply amazing!</h5>
                         </div>
                     </li>
                 </ul>
