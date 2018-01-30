@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
                                 <%  
-                                    String sql = "SELECT A.negozio, SUM(media_recensioni*n_recensioni)/SUM(n_recensioni) as star, SUM(quantity) as quantity FROM negozio N,articolo A,(select id_articolo, sum(quantità) as quantity from acquisto group by id_articolo ) as B WHERE N.nome = A.negozio AND A.id_articolo = B.id_articolo GROUP BY A.negozio ORDER BY star, quantity DESC";
+                                    String sql = "SELECT N.nome, ifnull(SUM(media_recensioni*n_recensioni)/SUM(n_recensioni), 0) as star, ifnull(SUM(quantity), 0) as quantity FROM negozio N left join articolo A ON N.nome = A.negozio left join (select id_articolo, sum(quantità) as quantity from acquisto group by id_articolo) as B ON A.id_articolo = B.id_articolo GROUP BY N.nome ORDER BY star desc, quantity desc";
 
                                     PreparedStatement stm = DBManager.CON.prepareStatement(sql);
                                     try (ResultSet rs = stm.executeQuery()) {
@@ -38,7 +38,7 @@
                                 %>
 
                                 <tr>                                 
-                                    <td><a href="negozio.jsp?view=<%=rs.getString("negozio")%>"><span class="venditore myblue_text"><%=rs.getString("negozio")%></span></a></td>
+                                    <td><a href="negozio.jsp?view=<%=rs.getString("nome")%>"><span class="venditore myblue_text"><%=rs.getString("nome")%></span></a></td>
                                     <td><%=rs.getString("quantity")%></td>
                                     <td><span class="valutazione">                            
                                         <div class="rating" data-rating="<%=Math.round(rs.getDouble("star"))%>">
