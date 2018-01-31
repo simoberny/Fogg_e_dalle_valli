@@ -107,7 +107,7 @@ public class Register extends HttpServlet {
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                 message.setSubject("Attivazione account ValliStore!");
                 message.setContent("<h2>Vallistore</h2> <br> Attiva il tuo account cliccando sul link seguente: <br><br> <a href=\""+ confirm_link +"\">Conferma l'account su valli store!</a>","text/html");
-                //Transport.send(message);
+                Transport.send(message);
                 System.out.println("Sent message successfully....");
             } catch (MessagingException mex) {
                 mex.printStackTrace();
