@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -100,7 +102,7 @@ public class Item {
             sql += " and negozio = \"" + venditore + "\"";
         }
 
-        if (ordinamento != null && ordinamento != "") {
+        if (ordinamento != null && ordinamento != "" && (txt == null || txt == "")) {
             switch (ordinamento) {
                 case "prezzo_cre":
                     sql += " ORDER BY prezzo ASC";
@@ -167,7 +169,7 @@ public class Item {
                 iend = (hits.length<(npag*20)?hits.length:(npag*20));
             }
             
-            for (int i = istart; i < iend; ++i) {
+            for (int i = istart; i < iend; i++) {
                 //System.out.println("tot: "+ hits.length + " i first: "+ ((npag-1)*20) + " i last: "+ ((hits.length<(npag*20)?hits.length:(npag*20))-1) + " nome: " + d.get("nome") );
                 int docId = hits[i].doc;
                 Document d = searcher.doc(docId);
@@ -187,7 +189,7 @@ public class Item {
                 back.categoria_3 = d.get("categoria_3");
                 l.add(back);
             }
-
+                        
         } else {
             Item back;
             
@@ -207,6 +209,60 @@ public class Item {
                 back.categoria_2 = rs.getString("categoria_2");
                 back.categoria_3 = rs.getString("categoria_3");
                 l.add(back);
+            }
+        }
+        
+        /*Comparator c1 = new Comparator<Item>() { //decrescente
+                     @Override
+                     public int compare(Item o1, Item o2) {
+                         if (o1.prezzo > o2.prezzo) return -1;
+                         if (o1.prezzo < o2.prezzo) return 1;
+                         return 0;
+                     }
+
+                 };
+
+            
+            if(ordinamento == "prezzo_dec"){
+                
+                l.sort(c1);
+                //Collections.sort(l, c1);
+            }else if(ordinamento == "prezzo_cre"){
+                //Collections.reverse(l);
+                //l.sort(c2);
+                //Collections.sort(l, c2);
+            }*/
+        
+        
+        
+        
+        
+        
+        
+        //System.out.println(l.size());
+        //System.out.println(ordinamento);
+        if (ordinamento != null){
+            if(ordinamento.endsWith("prezzo_dec")){
+                l.sort(new Comparator<Item>() { //decrescente
+                             @Override
+                             public int compare(Item o1, Item o2) {
+                                 if (o1.prezzo > o2.prezzo) return -1;
+                                 if (o1.prezzo < o2.prezzo) return 1;
+                                 return 0;
+                             }
+
+                         });
+            }
+            if(ordinamento.endsWith("prezzo_cre")){
+                l.sort(new Comparator<Item>() { //crescente
+                             @Override
+                             public int compare(Item o1, Item o2) {
+                                 if (o1.prezzo < o2.prezzo) return -1;
+                                 if (o1.prezzo > o2.prezzo) return 1;
+                                 return 0;
+                             }
+
+                         });
             }
         }
         return l;
