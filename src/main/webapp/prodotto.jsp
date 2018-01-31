@@ -53,7 +53,7 @@
                         <br>    
 
                         <span class="valutazione">                            
-                            <div class="rating" data-rating="<%=Math.round(i.media_recensioni * 2) / 2.0%>">
+                            <div class="rating" data-rating="<%=Math.round(i.media_recensioni)%>">
                                 <i class="star-1">★</i>
                                 <i class="star-2">★</i>
                                 <i class="star-3">★</i>
