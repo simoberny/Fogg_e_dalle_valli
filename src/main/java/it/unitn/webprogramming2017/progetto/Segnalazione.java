@@ -40,19 +40,23 @@ public class Segnalazione extends HttpServlet {
 
         HttpSession session = request.getSession();
         String id_articolo = request.getParameter("id_articolo");
+        String data_acquisto = request.getParameter("data_acquisto");
         String id_mittente = String.valueOf(session.getAttribute("id"));
         String id_destinatario = getIdNegozio(request.getParameter("destinatario"));
         String id_ordine = request.getParameter("id_ordine");
         String oggetto = request.getParameter("oggetto");
         String testo = request.getParameter("testo");
+        System.out.println(id_mittente);
 
-        try (PreparedStatement stm = CON.prepareStatement("INSERT INTO segnalazione (id_mittente, id_destinatario, id_ordine, id_articolo, oggetto, testo, data) VALUES ( ? , ? , ? , ? , ? , ? , NOW())")) {
+
+        try (PreparedStatement stm = CON.prepareStatement("INSERT INTO segnalazione (id_mittente, id_destinatario, id_ordine, id_articolo, data_acquisto, oggetto, testo, data) VALUES ( ? , ? , ?, ? , ? , ? , ? , NOW())")) {
             stm.setString(1, id_mittente);
             stm.setString(2, id_destinatario);
             stm.setString(3, id_ordine);
             stm.setString(4, id_articolo);
-            stm.setString(5, oggetto);
-            stm.setString(6, testo);
+            stm.setString(5, data_acquisto);
+            stm.setString(6, oggetto);
+            stm.setString(7, testo);
 
             stm.executeUpdate();
         } catch (SQLException e) {

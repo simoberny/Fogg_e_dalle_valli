@@ -64,6 +64,7 @@
 
             if (session.getAttribute("usr") != null) {
                 usr = (User) session.getAttribute("usr");
+                session.setAttribute("id", usr.getEmail());
             }
             if (session.getAttribute("negozio") != null) {
                 negozio = (Negozio) session.getAttribute("negozio");
